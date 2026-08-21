@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Αναγνώσεις Ταρώ — Ταρωτάκι</title>
+<meta name="description" content="Ημερήσιο και εβδομαδιαίο ταρώ δωρεάν. Διάλεξε τρεις κάρτες από πλήρη τράπουλα 78 καρτών και δες την ερμηνεία στα ελληνικά.">
+<meta name="theme-color" content="#08080a">
+<link rel="canonical" href="https://tarotaki.gr/tarot.html">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2308080a'/%3E%3Cpath d='M20.5 21.5A8 8 0 0 1 13 9a8.5 8.5 0 1 0 7.5 12.5Z' fill='%23d9a441'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="mobile-app-page tarot-app">
+
+<a class="skip-link" href="#main">Μετάβαση στο περιεχόμενο</a>
+<div class="sky" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="Ταρωτάκι — αρχική">
+      <span class="brand-mark" aria-hidden="true">☾</span>
+      <span>tarotaki.gr</span>
+    </a>
+
+    <nav class="nav-desktop" aria-label="Κύρια πλοήγηση">
+      <ul>
+        <li><a href="index.html#zodiac" data-i18n="nav.horoscope">Ωροσκόπιο</a></li>
+        <li><a href="compatibility.html" data-i18n="nav.compatibility">Συμβατότητα</a></li>
+        <li><a href="tarot.html" aria-current="page" data-i18n="nav.tarot">Ταρώ</a></li>
+        <li><a href="astrologer.html">AI Astrologer</a></li>
+        <li><a href="account.html" data-i18n="nav.pricing">Συνδρομή</a></li>
+      </ul>
+    </nav>
+
+    <a class="btn btn-primary btn-sm nav-upgrade" href="account.html" data-i18n="nav.upgrade">Απόκτησε Premium</a>
+
+    <div id="authChip" class="auth-chip"></div>
+
+    <div class="lang">
+      <button class="lang-btn" id="langBtn" type="button" aria-haspopup="listbox" aria-expanded="false"
+              data-i18n-attr="aria-label:nav.language">
+        <span id="langShort">ΕΛ</span>
+        <svg class="chev" width="9" height="9" viewBox="0 0 10 10" aria-hidden="true">
+          <path d="M1 3.5 5 7.5 9 3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="lang-menu" id="langMenu" role="listbox" data-open="false"></div>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="drawer"
+            data-i18n-attr="aria-label:nav.menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="drawer" id="drawer" data-open="false" aria-label="Πλοήγηση κινητού">
+  <a href="index.html#zodiac"><span class="ico" aria-hidden="true">01</span><span data-i18n="nav.horoscope">Ωροσκόπιο</span></a>
+  <a href="compatibility.html"><span class="ico" aria-hidden="true">02</span><span data-i18n="nav.compatibility">Συμβατότητα</span></a>
+  <a href="tarot.html"><span class="ico" aria-hidden="true">04</span><span data-i18n="nav.tarot">Ταρώ</span></a>
+  <a href="account.html"><span class="ico" aria-hidden="true">05</span><span data-i18n="nav.pricing">Συνδρομή</span></a>
+  <a class="btn btn-primary drawer-cta" href="account.html" data-i18n="nav.upgrade">Απόκτησε Premium</a>
+</nav>
+
+<main id="main">
+
+  <!-- ============ 1. Επιλογή ρίψης ============ -->
+  <section class="wrap tarot-hero" id="stageChooser">
+    <div class="tarot-deck-art" aria-hidden="true"><span>☾</span><span>✦</span><span>♥</span></div>
+    <h1 class="tarot-title" data-i18n="tp.title">Αναγνώσεις Ταρώ</h1>
+    <p class="tarot-sub">Απαντήσεις για κάθε ερώτηση.</p>
+
+    <div class="spread-grid" id="spreadGrid"></div>
+
+    <p class="tarot-note" id="comboNote"></p>
+  </section>
+
+  <section class="wrap stage-topic" id="stageTopic" hidden>
+    <button class="round-back" id="backFromTopic" type="button" aria-label="Πίσω"><span aria-hidden="true">←</span></button>
+    <span class="tag-premium">Premium</span>
+    <h1 class="stage-title" id="topicTitle">Διάλεξε θέμα</h1>
+    <p class="stage-sub">Διάλεξε την ανάγνωση που θέλεις και μετά τράβηξε 3 κάρτες.</p>
+    <div class="tarot-topic-list" id="topicList"></div>
+  </section>
+
+  <!-- ============ 2. Ανακάτεμα ============ -->
+  <section class="wrap stage-shuffle" id="stageShuffle" hidden>
+    <button class="round-back" id="backFromShuffle" type="button"
+            data-i18n-attr="aria-label:tp.back"><span aria-hidden="true">←</span></button>
+    <h1 class="stage-title" id="shuffleTitle">—</h1>
+
+    <div class="shuffle-fan" aria-hidden="true">
+      <span class="fan-card"></span><span class="fan-card"></span><span class="fan-card"></span>
+    </div>
+
+    <p class="shuffle-text" data-i18n="tp.shuffling">Ανακατεύουμε την τράπουλα…</p>
+    <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    <button class="tarot-skip" id="skipShuffle" type="button">Παράλειψη</button>
+  </section>
+
+  <!-- ============ 3. Επιλογή καρτών ============ -->
+  <section class="wrap stage-pick" id="stagePick" hidden>
+    <button class="round-back" id="backFromPick" type="button"
+            data-i18n-attr="aria-label:tp.back"><span aria-hidden="true">←</span></button>
+    <h1 class="stage-title" data-i18n="tp.pick">Διάλεξε 3 κάρτες</h1>
+    <p class="stage-sub"><span data-i18n="tp.pickHint">Πάτα τρεις κάρτες, όποιες σε τραβήξουν.</span>
+      <span class="pick-count"><span data-i18n="tp.remaining">Απομένουν</span>
+        <b id="remaining">3</b></span></p>
+
+    <div class="pick-grid" id="pickGrid"></div>
+  </section>
+
+  <!-- ============ 4. Αποτέλεσμα: και οι τρεις κάρτες ============ -->
+  <section class="wrap stage-result" id="stageResult" hidden>
+    <button class="round-back" id="backFromResult" type="button"
+            data-i18n-attr="aria-label:tp.back"><span aria-hidden="true">&#8592;</span></button>
+    <h1 class="stage-title" id="resultTitle">&#8212;</h1>
+    <p class="reading-date" id="resultDate">&#8212;</p>
+
+    <div class="cards-row" id="cardsRow"></div>
+
+    <article class="synthesis-panel" id="synthesisPanel">
+      <h2 class="syn-title" data-i18n="tp.synthesis">Η συνολική εικόνα</h2>
+      <p class="syn-text" id="synthesisText">&#8212;</p>
+    </article>
+
+    <div class="lock-panel result-premium-gate" id="resultPremiumGate" hidden>
+      <span class="tag-premium">Premium</span>
+      <h2>Οι κάρτες σου άνοιξαν.</h2>
+      <p>Η αναλυτική ερμηνεία των 3 καρτών και η συνολική ανάγνωση είναι διαθέσιμες με Premium.</p>
+      <a class="btn btn-primary" href="account.html">Απόκτησε Premium</a>
+    </div>
+
+    <div class="result-actions">
+      <a class="btn btn-primary" href="account.html" data-i18n="tp.more">Άνοιξε κι άλλες ρίψεις</a>
+      <p class="result-note" id="resultNote" data-i18n="tp.freeOne">Μία δωρεάν ανάγνωση κάθε 24 ώρες.</p>
+    </div>
+  </section>
+
+  <!-- ============ Έγινε ήδη σήμερα ============ -->
+  <section class="wrap stage-gate" id="stageGate" hidden>
+    <button class="round-back" id="backFromGate" type="button"
+            data-i18n-attr="aria-label:tp.back"><span aria-hidden="true">&#8592;</span></button>
+    <h1 class="stage-title" data-i18n="tp.gateTitle">Η σημερινή σου ανάγνωση έγινε</h1>
+    <p class="gate-count" id="gateCountdown">&#8212;</p>
+
+    <div class="lock-panel">
+      <span class="tag-premium" data-i18n="common.premium">Premium</span>
+      <p data-i18n="tp.gateText">Με Premium τραβάς όσες φορές θέλεις, σε όλες τις ρίψεις — αγάπης, χρημάτων, μηνιαία και προσωπικότητας.</p>
+      <a class="btn btn-primary" href="account.html" data-i18n="hp.unlock">Δες τη συνδρομή</a>
+    </div>
+  </section>
+
+  <!-- ============ Σύσταση μετά τη 2η ρίψη ============ -->
+  <section class="wrap stage-advice" id="stageAdvice" hidden>
+    <button class="round-back" id="backFromAdvice" type="button"
+            data-i18n-attr="aria-label:tp.back"><span aria-hidden="true">&#8592;</span></button>
+    <h1 class="stage-title" data-i18n="tp.adviceTitle">Τράβηξες ήδη δύο φορές σήμερα</h1>
+
+    <div class="advice-panel">
+      <p data-i18n="tp.adviceText">Στο ταρώ, η ίδια ερώτηση που επαναλαμβάνεται αραιώνει την απάντηση. Το συνηθισμένο είναι μία με δύο ρίψεις ανά κατηγορία — μετά, οι κάρτες συνήθως επιβεβαιώνουν αντί να προσθέτουν.</p>
+      <p class="advice-hint" data-i18n="tp.adviceHint">Ως συνδρομητής μπορείς να συνεχίσεις όσο θέλεις. Απλώς το λέμε.</p>
+
+      <div class="advice-actions">
+        <button class="btn btn-primary" id="adviceContinue" type="button" data-i18n="tp.adviceContinue">Συνέχισε ούτως ή άλλως</button>
+        <button class="btn btn-ghost btn-sm" id="adviceOther" type="button" data-i18n="tp.adviceOther">Δοκίμασε άλλη ρίψη</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Κλειδωμένη ρίψη ============ -->
+  <section class="wrap stage-locked" id="stageLocked" hidden>
+    <button class="round-back" id="backFromLocked" type="button"
+            data-i18n-attr="aria-label:tp.back"><span aria-hidden="true">←</span></button>
+    <h1 class="stage-title" id="lockedTitle">—</h1>
+
+    <div class="lock-panel">
+      <span class="tag-premium" data-i18n="common.premium">Premium</span>
+      <p id="lockedSub">—</p>
+      <p data-i18n="hp.lockedText">
+        Αυτή η ενότητα ανοίγει με τη συνδρομή Premium. Η γενική εικόνα για σήμερα μένει πάντα δωρεάν.
+      </p>
+      <a class="btn btn-primary" href="account.html" data-i18n="hp.unlock">Δες τη συνδρομή</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Ταρωτάκι — <span data-i18n="footer.rights">Με επιφύλαξη παντός δικαιώματος.</span></span>
+      <span class="disclaimer" data-i18n="footer.disclaimer">
+        Το περιεχόμενο προσφέρεται για ψυχαγωγία και αυτογνωσία. Δεν αντικαθιστά ιατρική, ψυχολογική, νομική ή οικονομική συμβουλή.
+      </span>
+    </div>
+  </div>
+</footer>
+
+<nav class="app-bottom-nav" aria-label="Κύρια πλοήγηση εφαρμογής">
+  <a class="app-tab" data-app-home href="horoscope.html?sign=aries" aria-label="Ωροσκόπιο"><span aria-hidden="true">⌂</span><small>Αρχική</small></a>
+  <a class="app-tab" href="compatibility.html" aria-label="Συμβατότητα"><span aria-hidden="true">♡</span><small>Ταίριασμα</small></a>
+  <a class="app-tab" href="astrologer.html" aria-label="Αστρολόγος"><span aria-hidden="true">◉</span><small>Αστρολόγος</small></a>
+  <a class="app-tab is-active" href="tarot.html" aria-label="Ταρώ"><span aria-hidden="true">▱</span><small>Ταρώ</small></a>
+</nav>
+
+<script src="assets/js/tarot.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/auth-chip.js"></script>
+<script src="assets/js/page-tarot.js"></script>
+<script src="assets/js/mobile-app-nav.js"></script>
+<script src="assets/js/ui.js"></script>
+</body>
+</html>

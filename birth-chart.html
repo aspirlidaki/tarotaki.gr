@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Γενέθλιος χάρτης | Ταρωτάκι</title>
+  <meta name="description" content="Υπολόγισε τον γενέθλιο χάρτη σου και δες τρία στοιχεία που ξεχωρίζουν.">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Μετάβαση στο περιεχόμενο</a>
+  <div class="sky" aria-hidden="true"></div>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="index.html" aria-label="tarotaki.gr — αρχική"><span class="brand-mark" aria-hidden="true">☾</span><span>tarotaki.gr</span></a>
+    <nav class="nav-desktop" aria-label="Κύρια πλοήγηση"><ul><li><a href="index.html#zodiac">Ωροσκόπιο</a></li><li><a href="birth-chart.html">Γενέθλιος χάρτης</a></li><li><a href="compatibility.html">Συμβατότητα</a></li><li><a href="tarot.html">Ταρώ</a></li><li><a href="astrologer.html">AI Astrologer</a></li></ul></nav>
+    <div id="authChip" class="auth-chip"></div>
+  </div></header>
+
+  <main id="main">
+    <section class="hero wrap chart-hero">
+      <div class="hero-inner">
+        <p class="landing-kicker">Ο γενέθλιος χάρτης σου</p>
+        <h1>Τα σημεία που<br><span class="accent">ξεχωρίζουν σε εσένα.</span></h1>
+        <p class="hero-sub">Βάλε τα βασικά στοιχεία γέννησής σου και δες μια πρώτη, καθαρή ανάγνωση του χάρτη σου.</p>
+      </div>
+    </section>
+
+    <section class="wrap chart-layout" aria-labelledby="chartFormTitle">
+      <form class="chart-form" id="birthChartForm">
+        <div class="section-head">
+          <span class="eyebrow"><span class="num">01</span><span>Τα στοιχεία σου</span></span>
+          <h2 class="section-title" id="chartFormTitle">Ξεκίνα από τη γέννησή σου.</h2>
+          <p class="section-sub">Η ημερομηνία είναι απαραίτητη. Η ώρα και ο τόπος κάνουν την ανάγνωση πιο συγκεκριμένη.</p>
+        </div>
+        <div class="chart-fields">
+          <label class="form-row"><span class="label">Ημερομηνία γέννησης</span><input class="field" id="chartDate" type="date" required></label>
+          <label class="form-row"><span class="label">Ώρα γέννησης <small>προαιρετικά</small></span><input class="field" id="chartTime" type="time"></label>
+          <label class="form-row chart-place"><span class="label">Τόπος γέννησης <small>προαιρετικά</small></span><input class="field" id="chartPlace" type="text" maxlength="120" autocomplete="address-level2" placeholder="π.χ. Αθήνα, Ελλάδα"></label>
+        </div>
+        <label class="remember-choice"><input id="rememberBirthData" type="checkbox"><span>Να θυμάται την ώρα και τον τόπο μου στον λογαριασμό μου.</span></label>
+        <p class="form-error" id="chartError" aria-live="polite"></p>
+        <button class="btn btn-primary" type="submit">Δες τον χάρτη μου</button>
+      </form>
+
+    </section>
+
+    <section class="wrap chart-result" id="chartResult" hidden aria-live="polite">
+      <div class="section-head">
+        <span class="eyebrow"><span class="num">02</span><span>Η πρώτη σου ανάγνωση</span></span>
+        <h2 class="section-title" id="chartSummary">Ο χάρτης σου με μια ματιά.</h2>
+        <p class="section-sub" id="chartMeta"></p>
+      </div>
+      <div class="chart-basics" id="chartBasics"></div>
+      <h3 class="results-label">3 ξεχωριστά ευρήματα στον χάρτη σου</h3>
+      <div class="finding-grid" id="findings"></div>
+      <div class="full-report" id="fullReportGate">
+        <div><span class="label">Premium</span><h2>Πλήρης αναφορά γενέθλιου χάρτη</h2><p>Πλανήτες, όψεις και αναλυτική ερμηνεία σε ένα ολοκληρωμένο report.</p></div>
+        <button type="button" class="btn btn-primary" id="fullReportButton">Δες το full report</button>
+      </div>
+      <div class="full-report-details" id="fullReportDetails" hidden></div>
+    </section>
+  </main>
+
+  <div class="chart-flow" id="chartFlow" role="dialog" aria-modal="true" aria-labelledby="chartFlowTitle">
+    <div class="chart-flow__stars" aria-hidden="true"></div>
+    <div class="chart-flow__content" id="chartFlowContent"></div>
+  </div>
+
+  <footer class="site-footer"><div class="wrap"><div class="footer-bottom"><span>© <span id="year"></span> Ταρωτάκι</span><span class="disclaimer">Περιεχόμενο για ψυχαγωγία και αυτογνωσία.</span></div></div></footer>
+  <script src="assets/js/astro.js"></script>
+  <script src="assets/js/ephemeris.js"></script>
+  <script src="assets/js/natal.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/auth-chip.js"></script>
+  <script src="assets/js/page-birth-chart.js"></script>
+  <script src="assets/js/ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<svg width="360" height="360" viewBox="0 0 360 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="triangle" x1="61" y1="59" x2="305" y2="286" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#85C5FF"/>
+      <stop offset="0.46" stop-color="#9C58F1"/>
+      <stop offset="1" stop-color="#F289DE"/>
+    </linearGradient>
+    <linearGradient id="triangleGlow" x1="67" y1="39" x2="294" y2="292" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E6D7FF"/>
+      <stop offset="0.46" stop-color="#9E5DFF"/>
+      <stop offset="1" stop-color="#FF9BE9"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(91 201) rotate(45) scale(60)">
+      <stop stop-color="#F4D7FF"/>
+      <stop offset="0.54" stop-color="#BD8CFF"/>
+      <stop offset="1" stop-color="#4A4EB6"/>
+    </radialGradient>
+    <linearGradient id="moon" x1="214" y1="165" x2="291" y2="253" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7E4FF"/>
+      <stop offset="0.56" stop-color="#D6BAFF"/>
+      <stop offset="1" stop-color="#8369DE"/>
+    </linearGradient>
+    <filter id="glow" x="10" y="6" width="340" height="337" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="11" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="star" x="0" y="0" width="360" height="360" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g opacity="0.88" filter="url(#glow)">
+    <path d="M180 45L303 280H57L180 45Z" fill="url(#triangle)" fill-opacity="0.18"/>
+    <path d="M180 45L303 280H57L180 45Z" stroke="url(#triangleGlow)" stroke-width="9" stroke-linejoin="round"/>
+    <path d="M180 61L286 265H74L180 61Z" stroke="#EEDBFF" stroke-opacity="0.7" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M180 52L130 262M180 52L230 262M64 276H296" stroke="#D8BDFF" stroke-opacity="0.36" stroke-width="2"/>
+  </g>
+  <g filter="url(#glow)">
+    <circle cx="89" cy="197" r="56" fill="url(#sun)"/>
+    <path d="M57 183C77 166 105 174 118 191C101 185 84 193 76 210C69 202 63 193 57 183Z" fill="#7A62D7" fill-opacity="0.7"/>
+    <circle cx="84" cy="190" r="9" fill="#723DC8"/>
+    <path d="M266 145C225 155 207 196 220 232C233 268 273 282 306 259C275 268 245 248 239 220C232 190 247 159 266 145Z" fill="url(#moon)"/>
+    <path d="M250 164C238 185 239 213 254 233" stroke="#FFF2FF" stroke-opacity="0.72" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <g filter="url(#star)" stroke="#FBE8FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M257 48L284 61L303 44L327 60L336 88" stroke-opacity="0.78"/>
+    <circle cx="257" cy="48" r="5" fill="#FFF7FF"/>
+    <circle cx="284" cy="61" r="5" fill="#FFF7FF"/>
+    <circle cx="303" cy="44" r="5" fill="#FFF7FF"/>
+    <circle cx="327" cy="60" r="5" fill="#FFF7FF"/>
+    <circle cx="336" cy="88" r="4" fill="#FFF7FF"/>
+  </g>
+  <g fill="#FFF8FF" filter="url(#star)">
+    <path d="M183 17L188 30L201 35L188 40L183 53L178 40L165 35L178 30L183 17Z"/>
+    <path d="M141 98L144 106L152 109L144 112L141 120L138 112L130 109L138 106L141 98Z"/>
+    <path d="M309 154L312 162L320 165L312 168L309 176L306 168L298 165L306 162L309 154Z"/>
+  </g>
+</svg>

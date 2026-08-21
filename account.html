@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Λογαριασμός — Ταρωτάκι</title>
+<meta name="description" content="Λογαριασμός Ταρωτάκι. Χρειάζεται μόνο για τη συνδρομή Premium — το ωροσκόπιο, η συμβατότητα και το ταρώ διαβάζονται ελεύθερα.">
+<meta name="theme-color" content="#08080a">
+<meta name="robots" content="noindex">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2308080a'/%3E%3Cpath d='M20.5 21.5A8 8 0 0 1 13 9a8.5 8.5 0 1 0 7.5 12.5Z' fill='%23d9a441'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Μετάβαση στο περιεχόμενο</a>
+<div class="sky" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="Ταρωτάκι — αρχική">
+      <span class="brand-mark" aria-hidden="true">☾</span>
+      <span>tarotaki.gr</span>
+    </a>
+
+    <nav class="nav-desktop" aria-label="Κύρια πλοήγηση">
+      <ul>
+        <li><a href="index.html#zodiac" data-i18n="nav.horoscope">Ωροσκόπιο</a></li>
+        <li><a href="compatibility.html" data-i18n="nav.compatibility">Συμβατότητα</a></li>
+        <li><a href="tarot.html" data-i18n="nav.tarot">Ταρώ</a></li>
+        <li><a href="account.html" data-i18n="nav.pricing">Συνδρομή</a></li>
+      </ul>
+    </nav>
+
+    <div id="authChip" class="auth-chip"></div>
+
+    <div class="lang">
+      <button class="lang-btn" id="langBtn" type="button" aria-haspopup="listbox" aria-expanded="false"
+              data-i18n-attr="aria-label:nav.language">
+        <span id="langShort">ΕΛ</span>
+        <svg class="chev" width="9" height="9" viewBox="0 0 10 10" aria-hidden="true">
+          <path d="M1 3.5 5 7.5 9 3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="lang-menu" id="langMenu" role="listbox" data-open="false"></div>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="drawer"
+            data-i18n-attr="aria-label:nav.menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="drawer" id="drawer" data-open="false" aria-label="Πλοήγηση κινητού">
+  <a href="index.html#zodiac"><span class="ico" aria-hidden="true">01</span><span data-i18n="nav.horoscope">Ωροσκόπιο</span></a>
+  <a href="compatibility.html"><span class="ico" aria-hidden="true">02</span><span data-i18n="nav.compatibility">Συμβατότητα</span></a>
+  <a href="tarot.html"><span class="ico" aria-hidden="true">04</span><span data-i18n="nav.tarot">Ταρώ</span></a>
+  <a href="account.html"><span class="ico" aria-hidden="true">05</span><span data-i18n="nav.pricing">Συνδρομή</span></a>
+  <a class="btn btn-primary drawer-cta" href="account.html" data-i18n="nav.upgrade">Απόκτησε Premium</a>
+</nav>
+
+<main id="main">
+
+  <!-- ============ Φόρμα (εγγραφή ή σύνδεση) ============ -->
+  <section class="wrap auth-stage" id="stageForm">
+    <div class="auth-box">
+      <h1 class="auth-title" id="authTitle" data-i18n="acc.titleSignup">Φτιάξε λογαριασμό</h1>
+      <p class="auth-sub" id="authSub" data-i18n="acc.subSignup">
+        Δεν χρειάζεται για να διαβάζεις το ωροσκόπιο, τη συμβατότητα ή το ταρώ.
+        Χρειάζεται μόνο αν θέλεις συνδρομή Premium.
+      </p>
+
+      <form id="authForm" novalidate>
+        <div class="form-row" id="rowName">
+          <label class="label" for="acName" data-i18n="acc.name">Όνομα</label>
+          <input class="field" type="text" id="acName" autocomplete="name"
+                 data-i18n-attr="placeholder:acc.namePh" placeholder="Πώς θέλεις να σε λέμε">
+          <p class="form-error" id="errAcName"></p>
+        </div>
+
+        <div class="form-row" id="rowEmail">
+          <label class="label" for="acEmail" data-i18n="acc.email">Email</label>
+          <input class="field" type="email" id="acEmail" autocomplete="email"
+                 data-i18n-attr="placeholder:acc.emailPh" placeholder="to.email@paradeigma.gr">
+          <p class="form-error" id="errAcEmail"></p>
+        </div>
+
+        <div class="form-row" id="rowPassword">
+          <label class="label" for="acPassword" data-i18n="acc.password">Κωδικός</label>
+          <input class="field" type="password" id="acPassword" autocomplete="new-password"
+                 data-i18n-attr="placeholder:acc.passwordPh" placeholder="Τουλάχιστον 8 χαρακτήρες">
+          <p class="form-error" id="errAcPassword"></p>
+        </div>
+
+        <div class="form-row" id="rowPassword2">
+          <label class="label" for="acPassword2" data-i18n="acc.password2">Επανάληψη κωδικού</label>
+          <input class="field" type="password" id="acPassword2" autocomplete="new-password"
+                 data-i18n-attr="placeholder:acc.password2Ph" placeholder="Ξαναγράψε τον κωδικό">
+          <p class="form-error" id="errAcPassword2"></p>
+        </div>
+
+        <button class="btn btn-primary btn-block" type="submit" id="authSubmit"
+                data-i18n="acc.doSignup">Δημιουργία λογαριασμού</button>
+        <p class="form-error" id="authError" aria-live="polite"></p>
+      </form>
+
+      <p class="auth-switch">
+        <span id="switchText" data-i18n="acc.haveAccount">Έχεις ήδη λογαριασμό;</span>
+        <button class="link-btn" type="button" id="switchBtn" data-i18n="acc.goSignin">Σύνδεση</button>
+      </p>
+    </div>
+
+    <p class="proto-note" id="protoNote" hidden data-i18n="acc.prototype">
+      Πρωτότυπο: οι λογαριασμοί αποθηκεύονται προσωρινά σε αυτή τη συσκευή και δεν είναι
+      ασφαλείς. Η κανονική ταυτοποίηση με επιβεβαίωση email μπαίνει στην επόμενη φάση.
+    </p>
+  </section>
+
+  <!-- ============ Στοιχεία γέννησης ============ -->
+  <section class="wrap auth-stage" id="stageBirthProfile" hidden>
+    <div class="auth-box">
+      <span class="label" data-i18n="acc.birthProfileEyebrow">Το προφίλ σου</span>
+      <h1 class="auth-title" data-i18n="acc.birthProfileTitle">Πότε γεννήθηκες;</h1>
+      <p class="auth-sub" data-i18n="acc.birthProfileSub">Με αυτά τα στοιχεία μπορούμε να κάνουμε τις αναγνώσεις σου πιο προσωπικές.</p>
+
+      <form id="birthProfileForm" novalidate>
+        <div class="form-row" id="rowBirthDate">
+          <label class="label" for="birthProfileDate" data-i18n="acc.birthDate">Ημερομηνία γέννησης</label>
+          <input class="field" type="date" id="birthProfileDate" autocomplete="bday" required>
+          <p class="form-error" id="errBirthDate"></p>
+        </div>
+
+        <div class="form-row" id="rowBirthTime">
+          <label class="label" for="birthProfileTime" data-i18n="acc.birthTime">Ώρα γέννησης</label>
+          <input class="field" type="time" id="birthProfileTime" required>
+          <p class="form-error" id="errBirthTime"></p>
+        </div>
+
+        <div class="form-row" id="rowBirthPlace">
+          <label class="label" for="birthProfilePlace" data-i18n="acc.birthPlace">Τόπος γέννησης <span data-i18n="acc.optional">(προαιρετικά)</span></label>
+          <input class="field" type="text" id="birthProfilePlace" autocomplete="address-level2" maxlength="120"
+                 data-i18n-attr="placeholder:acc.birthPlacePh" placeholder="π.χ. Αθήνα, Ελλάδα">
+          <p class="form-hint" data-i18n="acc.birthPlaceHint">Ο τόπος βοηθά για ακόμη μεγαλύτερη ακρίβεια στους μελλοντικούς υπολογισμούς.</p>
+        </div>
+
+        <button class="btn btn-primary btn-block" type="submit" data-i18n="acc.saveBirthProfile">Συνέχεια</button>
+        <p class="form-error" id="birthProfileError" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ Συνδεδεμένος ============ -->
+  <section class="wrap auth-stage" id="stageAccount" hidden>
+    <div class="auth-box">
+      <span class="label" data-i18n="acc.welcome">Καλώς ήρθες</span>
+      <h1 class="auth-title" id="userName">—</h1>
+
+
+      <div class="natal-trio" id="natalTrio" hidden>
+        <span class="label" data-i18n="acc.natalTitle">Ο χάρτης σου</span>
+        <div class="trio-grid">
+          <div class="trio-cell">
+            <span class="trio-icon" aria-hidden="true"><img src="assets/icons/sun.webp" alt=""></span>
+            <span class="trio-label" data-i18n="acc.natalSun">Ζώδιο</span>
+            <strong id="natalSun">—</strong>
+            <small id="natalSunDeg">—</small>
+          </div>
+          <div class="trio-cell">
+            <span class="trio-icon" aria-hidden="true"><img src="assets/icons/moon.webp" alt=""></span>
+            <span class="trio-label" data-i18n="acc.natalMoon">Σελήνη</span>
+            <strong id="natalMoon">—</strong>
+            <small id="natalMoonDeg">—</small>
+          </div>
+          <div class="trio-cell">
+            <span class="trio-icon" aria-hidden="true"><img src="assets/icons/rising-star.webp" alt=""></span>
+            <span class="trio-label" data-i18n="acc.natalAsc">Ωροσκόπος</span>
+            <strong id="natalAsc">—</strong>
+            <small id="natalAscDeg">—</small>
+          </div>
+        </div>
+        <p class="natal-note" id="natalNote" hidden></p>
+      </div>
+
+      <dl class="account-facts">
+        <div class="fact"><dt data-i18n="acc.email">Email</dt><dd id="userEmail">—</dd></div>
+        <div class="fact"><dt data-i18n="acc.plan">Συνδρομή</dt><dd id="userPlan">—</dd></div>
+        <div class="fact"><dt data-i18n="acc.memberSince">Μέλος από</dt><dd id="userSince">—</dd></div>
+        <div class="fact"><dt data-i18n="acc.birthDate">Ημερομηνία γέννησης</dt><dd id="userBirthDate">—</dd></div>
+        <div class="fact"><dt data-i18n="acc.birthTime">Ώρα γέννησης</dt><dd id="userBirthTime">—</dd></div>
+        <div class="fact" id="userBirthPlaceRow" hidden><dt data-i18n="acc.birthPlace">Τόπος γέννησης</dt><dd id="userBirthPlace">—</dd></div>
+      </dl>
+
+      <p class="verify-note" id="verifyNote" data-i18n="acc.verifyNote">
+        Η επιβεβαίωση email θα ενεργοποιηθεί στην επόμενη φάση.
+      </p>
+
+      <a class="btn btn-primary btn-block" href="account.html" data-i18n="acc.upgrade">Απόκτησε Premium</a>
+      <a class="btn btn-ghost btn-block" href="astrologer.html#creditPacks" data-i18n="acc.getCredits">Απέκτησε credits</a>
+
+      <div class="account-actions">
+        <button class="btn btn-ghost btn-sm" type="button" id="signOutBtn" data-i18n="acc.signOut">Αποσύνδεση</button>
+        <button class="link-btn danger" type="button" id="deleteBtn" data-i18n="acc.delete">Διαγραφή λογαριασμού</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap subscription-section" aria-labelledby="premiumPlansTitle">
+    <div class="section-head">
+      <span class="eyebrow"><span class="num">PR</span><span>Premium</span></span>
+      <h2 class="section-title" id="premiumPlansTitle">Διάλεξε τη συνδρομή σου.</h2>
+      <p class="section-sub">Το εβδομαδιαίο πακέτο είναι ιδανικό για να δοκιμάσεις όλες τις Premium λειτουργίες.</p>
+    </div>
+    <div class="subscription-options">
+      <button class="subscription-option is-featured" type="button" data-plan="weekly"><span>Premium εβδομαδιαία</span><b>1,99 €</b><small>κάθε εβδομάδα</small></button>
+      <button class="subscription-option" type="button" data-plan="monthly"><span>Premium μηνιαία</span><b>10 €</b><small>κάθε μήνα</small></button>
+      <button class="subscription-option" type="button" data-plan="yearly"><span>Premium ετήσια</span><b>79,99 €</b><small>κάθε χρόνο</small></button>
+    </div>
+    <p class="proto-note" id="subscriptionNote">Η ενεργοποίηση πληρωμών θα συνδεθεί πριν το site βγει live.</p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Ταρωτάκι — <span data-i18n="footer.rights">Με επιφύλαξη παντός δικαιώματος.</span></span>
+      <span class="disclaimer" data-i18n="footer.disclaimer">
+        Το περιεχόμενο προσφέρεται για ψυχαγωγία και αυτογνωσία. Δεν αντικαθιστά ιατρική, ψυχολογική, νομική ή οικονομική συμβουλή.
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/astro.js"></script>
+<script src="assets/js/ephemeris.js"></script>
+<script src="assets/js/natal.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/page-account.js"></script>
+<script src="assets/js/ui.js"></script>
+</body>
+</html>

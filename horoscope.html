@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ωροσκόπιο — Ταρωτάκι</title>
+<meta name="description" content="Ημερήσιο ωροσκόπιο με πραγματικές θέσεις πλανητών, υπολογισμένες αστρονομικά για σήμερα.">
+<meta name="theme-color" content="#08080a">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://tarotaki.gr/horoscope.html">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2308080a'/%3E%3Cpath d='M20.5 21.5A8 8 0 0 1 13 9a8.5 8.5 0 1 0 7.5 12.5Z' fill='%23d9a441'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="dashboard-app">
+
+<a class="skip-link" href="#main">Μετάβαση στο περιεχόμενο</a>
+<div class="sky" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="Ταρωτάκι — αρχική">
+      <span class="brand-mark" aria-hidden="true">☾</span>
+      <span>tarotaki.gr</span>
+    </a>
+
+    <nav class="nav-desktop" aria-label="Κύρια πλοήγηση">
+      <ul>
+        <li><a href="index.html#zodiac" data-i18n="nav.horoscope">Ωροσκόπιο</a></li>
+        <li><a href="compatibility.html" data-i18n="nav.compatibility">Συμβατότητα</a></li>
+        <li><a href="tarot.html" data-i18n="nav.tarot">Ταρώ</a></li>
+        <li><a href="astrologer.html">AI Astrologer</a></li>
+        <li><a href="account.html" data-i18n="nav.pricing">Συνδρομή</a></li>
+      </ul>
+    </nav>
+
+    <a class="btn btn-primary btn-sm nav-upgrade" href="account.html" data-i18n="nav.upgrade">Απόκτησε Premium</a>
+
+    <div id="authChip" class="auth-chip"></div>
+
+    <div class="lang">
+      <button class="lang-btn" id="langBtn" type="button" aria-haspopup="listbox" aria-expanded="false"
+              data-i18n-attr="aria-label:nav.language">
+        <span id="langShort">ΕΛ</span>
+        <svg class="chev" width="9" height="9" viewBox="0 0 10 10" aria-hidden="true">
+          <path d="M1 3.5 5 7.5 9 3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="lang-menu" id="langMenu" role="listbox" data-open="false"></div>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="drawer"
+            data-i18n-attr="aria-label:nav.menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="drawer" id="drawer" data-open="false" aria-label="Πλοήγηση κινητού">
+  <a href="index.html#zodiac"><span class="ico" aria-hidden="true">01</span><span data-i18n="nav.horoscope">Ωροσκόπιο</span></a>
+  <a href="compatibility.html"><span class="ico" aria-hidden="true">02</span><span data-i18n="nav.compatibility">Συμβατότητα</span></a>
+  <a href="tarot.html"><span class="ico" aria-hidden="true">05</span><span data-i18n="nav.tarot">Ταρώ</span></a>
+  <a href="account.html"><span class="ico" aria-hidden="true">06</span><span data-i18n="nav.pricing">Συνδρομή</span></a>
+  <a class="btn btn-primary drawer-cta" href="account.html" data-i18n="nav.upgrade">Απόκτησε Premium</a>
+</nav>
+
+<main id="main">
+
+  <!-- Κεφαλίδα ζωδίου -->
+  <section class="wrap sign-hero">
+    <a class="back-link" href="index.html#zodiac">
+      <span aria-hidden="true">←</span> <span data-i18n="hp.back">Όλα τα ζώδια</span>
+    </a>
+
+    <div class="sign-head">
+      <span class="sign-glyph" id="signGlyph" aria-hidden="true">♉</span>
+      <div class="sign-copy">
+        <h1 class="sign-name" id="signName">—</h1>
+        <p class="sign-range"><span class="dashboard-sign-label">Το ζώδιό σου</span><span id="signRange">—</span></p>
+      </div>
+      <a class="sign-settings" href="account.html" aria-label="Ρυθμίσεις προφίλ">⚙</a>
+    </div>
+
+    <!-- Περίοδος -->
+    <h2 class="dashboard-heading">Ωροσκόπιο</h2>
+    <div class="segmented" id="periodTabs" role="group"
+         data-i18n-attr="aria-label:nav.horoscope"></div>
+  </section>
+
+  <!-- Πρόβλεψη -->
+  <section class="wrap reading">
+    <div class="cat-tabs" id="categoryTabs" role="group"
+         data-i18n-attr="aria-label:hp.general"></div>
+
+    <p class="reading-date" id="readingDate">—</p>
+
+    <article class="reading-body" id="readingBody">
+      <h2 class="reading-title" id="readingTitle">—</h2>
+      <p class="reading-text" id="readingText">—</p>
+      <button class="reading-more" id="readingMore" type="button" aria-expanded="false">Διάβασε περισσότερα <span aria-hidden="true">⌄</span></button>
+      <dl class="reading-facts" id="readingFacts"></dl>
+
+      <div class="reading-actions">
+        <button class="btn btn-ghost btn-sm" id="shareBtn" type="button">
+          <span aria-hidden="true">↗</span>
+          <span data-i18n="hp.share">Μοιράσου το ωροσκόπιο</span>
+        </button>
+        <span class="share-status" id="shareStatus" aria-live="polite"></span>
+      </div>
+    </article>
+
+    <div class="lock-panel" id="lockPanel" hidden>
+      <span class="tag-premium" data-i18n="hp.locked">Διαθέσιμο με Premium</span>
+      <p data-i18n="hp.lockedText">
+        Αυτή η ενότητα ανοίγει με τη συνδρομή Premium. Η γενική εικόνα για σήμερα μένει πάντα δωρεάν.
+      </p>
+      <a class="btn btn-primary" href="account.html" data-i18n="hp.unlock">Δες τη συνδρομή</a>
+    </div>
+
+    <div id="scoresBlock">
+      <h3 class="block-title" data-i18n="hp.scores">Οι τομείς της ημέρας</h3>
+      <div class="score-list" id="scoreList"></div>
+    </div>
+  </section>
+
+  <section class="wrap lunar-dashboard" aria-labelledby="lunarTitle">
+    <h2 class="dashboard-heading" id="lunarTitle">Σεληνιακό ημερολόγιο</h2>
+    <article class="lunar-card">
+      <span class="lunar-icon" aria-hidden="true">◐</span>
+      <div>
+        <strong>Πρώτο τέταρτο</strong>
+        <p>Ημέρα για μικρά, σταθερά βήματα.</p>
+      </div>
+      <span class="lunar-date">Σήμερα</span>
+    </article>
+  </section>
+
+  <section class="wrap dashboard-features" aria-labelledby="featuresTitle">
+    <h2 class="dashboard-heading" id="featuresTitle">Οι λειτουργίες σου</h2>
+    <div class="dashboard-feature-list">
+      <a href="compatibility.html" class="dashboard-feature"><span aria-hidden="true">♡</span><b>Συμβατότητα</b><small>Δες τη δυναμική δύο ζωδίων</small><i aria-hidden="true">›</i></a>
+      <a href="astrologer.html" class="dashboard-feature"><span aria-hidden="true">◉</span><b>Αστρολόγος</b><small>Προσωπικές ερωτήσεις και καθοδήγηση</small><i aria-hidden="true">›</i></a>
+      <a href="compatibility.html" class="dashboard-feature"><span aria-hidden="true">✦</span><b>Matrix of Destiny</b><small>Η αριθμολογική σου εικόνα</small><i aria-hidden="true">›</i></a>
+      <a href="birth-chart.html" class="dashboard-feature"><span aria-hidden="true">☌</span><b>Γενέθλιος χάρτης</b><small>Εξερεύνησε τον αστρολογικό σου χάρτη</small><i aria-hidden="true">›</i></a>
+      <a href="big-three.html" class="dashboard-feature"><span aria-hidden="true">△</span><b>Big Three</b><small>Ήλιος, Σελήνη και Ωροσκόπος</small><i aria-hidden="true">›</i></a>
+      <a href="tarot.html" class="dashboard-feature"><span aria-hidden="true">▱</span><b>Ταρώ</b><small>Μια καθαρή ματιά στη μέρα σου</small><i aria-hidden="true">›</i></a>
+    </div>
+  </section>
+
+  <!-- Ο ουρανός -->
+  <section class="wrap">
+    <div class="section-head">
+      <span class="eyebrow"><span class="num">☾</span><span data-i18n="hp.sky">Ο ουρανός αυτή τη στιγμή</span></span>
+      <p class="section-sub" data-i18n="hp.skyNote">
+        Πραγματικές θέσεις, υπολογισμένες αστρονομικά για την ημερομηνία της συσκευής σου.
+      </p>
+    </div>
+
+    <div class="sky-grid">
+      <table class="sky-table">
+        <tbody id="skyRows"></tbody>
+      </table>
+
+      <div>
+        <h3 class="block-title" data-i18n="hp.aspects">Όψεις της ημέρας</h3>
+        <ul class="aspect-list" id="aspectList"></ul>
+      </div>
+    </div>
+
+    <details class="method">
+      <summary data-i18n="hp.method">Πώς βγαίνει αυτή η πρόβλεψη</summary>
+      <p data-i18n="hp.methodText">
+        Οι θέσεις των πλανητών υπολογίζονται αστρονομικά για τη σημερινή ημερομηνία. Η πρόβλεψη
+        προκύπτει από τον ηλιακό οίκο όπου βρίσκεται η Σελήνη και από τις πραγματικές όψεις που
+        σχηματίζει. Οι ερμηνείες ακολουθούν την παραδοσιακή αστρολογία και προσφέρονται για
+        αυτογνωσία και ψυχαγωγία.
+      </p>
+    </details>
+  </section>
+
+  <!-- Άλλα ζώδια -->
+  <section class="wrap">
+    <h3 class="block-title" data-i18n="hp.others">Άλλα ζώδια</h3>
+    <div class="mini-signs" id="otherSigns"></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Ταρωτάκι — <span data-i18n="footer.rights">Με επιφύλαξη παντός δικαιώματος.</span></span>
+      <span class="disclaimer" data-i18n="footer.disclaimer">
+        Το περιεχόμενο προσφέρεται για ψυχαγωγία και αυτογνωσία. Δεν αντικαθιστά ιατρική, ψυχολογική, νομική ή οικονομική συμβουλή.
+      </span>
+    </div>
+  </div>
+</footer>
+
+<nav class="app-bottom-nav" aria-label="Κύρια πλοήγηση εφαρμογής">
+  <a class="app-tab is-active" data-app-home href="horoscope.html?sign=aries" aria-label="Ωροσκόπιο"><span aria-hidden="true">⌂</span><small>Αρχική</small></a>
+  <a class="app-tab" href="compatibility.html" aria-label="Συμβατότητα"><span aria-hidden="true">♡</span><small>Ταίριασμα</small></a>
+  <a class="app-tab" href="astrologer.html" aria-label="Αστρολόγος"><span aria-hidden="true">◉</span><small>Αστρολόγος</small></a>
+  <a class="app-tab" href="tarot.html" aria-label="Ταρώ"><span aria-hidden="true">▱</span><small>Ταρώ</small></a>
+</nav>
+
+<script src="assets/js/astro.js"></script>
+<script src="assets/js/ephemeris.js"></script>
+<script src="assets/js/horoscope.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/auth-chip.js"></script>
+<script src="assets/js/page-horoscope.js"></script>
+<script src="assets/js/mobile-app-nav.js"></script>
+<script src="assets/js/ui.js"></script>
+</body>
+</html>

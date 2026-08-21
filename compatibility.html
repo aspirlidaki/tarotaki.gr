@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Συμβατότητα Ζωδίων — Ταρωτάκι</title>
+<meta name="description" content="Γενική συμβατότητα δύο ζωδίων δωρεάν. Αναλυτικές ενότητες αγάπης, οικειότητας και επικοινωνίας με Premium.">
+<meta name="theme-color" content="#08080a">
+<link rel="canonical" href="https://tarotaki.gr/compatibility.html">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2308080a'/%3E%3Cpath d='M20.5 21.5A8 8 0 0 1 13 9a8.5 8.5 0 1 0 7.5 12.5Z' fill='%23d9a441'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="mobile-app-page compatibility-app">
+
+<a class="skip-link" href="#main">Μετάβαση στο περιεχόμενο</a>
+<div class="sky" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="Ταρωτάκι — αρχική">
+      <span class="brand-mark" aria-hidden="true">☾</span>
+      <span>tarotaki.gr</span>
+    </a>
+
+    <nav class="nav-desktop" aria-label="Κύρια πλοήγηση">
+      <ul>
+        <li><a href="index.html#zodiac" data-i18n="nav.horoscope">Ωροσκόπιο</a></li>
+        <li><a href="compatibility.html" aria-current="page" data-i18n="nav.compatibility">Συμβατότητα</a></li>
+        <li><a href="tarot.html" data-i18n="nav.tarot">Ταρώ</a></li>
+        <li><a href="astrologer.html">AI Astrologer</a></li>
+        <li><a href="account.html" data-i18n="nav.pricing">Συνδρομή</a></li>
+      </ul>
+    </nav>
+
+    <a class="btn btn-primary btn-sm nav-upgrade" href="account.html" data-i18n="nav.upgrade">Απόκτησε Premium</a>
+
+    <div id="authChip" class="auth-chip"></div>
+
+    <div class="lang">
+      <button class="lang-btn" id="langBtn" type="button" aria-haspopup="listbox" aria-expanded="false"
+              data-i18n-attr="aria-label:nav.language">
+        <span id="langShort">ΕΛ</span>
+        <svg class="chev" width="9" height="9" viewBox="0 0 10 10" aria-hidden="true">
+          <path d="M1 3.5 5 7.5 9 3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="lang-menu" id="langMenu" role="listbox" data-open="false"></div>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="drawer"
+            data-i18n-attr="aria-label:nav.menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="drawer" id="drawer" data-open="false" aria-label="Πλοήγηση κινητού">
+  <a href="index.html#zodiac"><span class="ico" aria-hidden="true">01</span><span data-i18n="nav.horoscope">Ωροσκόπιο</span></a>
+  <a href="compatibility.html"><span class="ico" aria-hidden="true">02</span><span data-i18n="nav.compatibility">Συμβατότητα</span></a>
+  <a href="tarot.html"><span class="ico" aria-hidden="true">05</span><span data-i18n="nav.tarot">Ταρώ</span></a>
+  <a href="account.html"><span class="ico" aria-hidden="true">06</span><span data-i18n="nav.pricing">Συνδρομή</span></a>
+  <a class="btn btn-primary drawer-cta" href="account.html" data-i18n="nav.upgrade">Απόκτησε Premium</a>
+</nav>
+
+<main id="main">
+
+  <!-- Κεφαλίδα -->
+  <section class="wrap compat-hero">
+    <span class="orbit-mark" aria-hidden="true">
+      <svg viewBox="0 0 80 80">
+        <circle cx="40" cy="40" r="37" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+        <circle cx="40" cy="40" r="27" fill="none" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+        <ellipse cx="40" cy="40" rx="37" ry="15" fill="none" stroke="currentColor" stroke-width="1.2"
+                 transform="rotate(-28 40 40)"/>
+        <circle cx="40" cy="40" r="7" fill="currentColor"/>
+      </svg>
+    </span>
+
+    <h1 class="compat-title" data-i18n="cp.title">Συμβατότητα Ζωδίων</h1>
+    <p class="compat-sub" data-i18n="cp.sub">
+      Δες τη σύνδεση ανάμεσα σε δύο ζώδια — στον έρωτα, στη φιλία και στη συνεργασία.
+    </p>
+    <p class="compat-free"><span class="tag-free" data-i18n="common.free">Δωρεάν</span>
+      <span data-i18n="cp.free">Η γενική συμβατότητα είναι δωρεάν για όλα τα ζευγάρια ζωδίων.</span></p>
+  </section>
+
+  <section class="wrap compat-choices" aria-labelledby="compatChoicesTitle">
+    <div class="section-head">
+      <span class="eyebrow"><span class="num">01</span><span>Διάλεξε ανάλυση</span></span>
+      <h2 class="section-title" id="compatChoicesTitle">Τρεις τρόποι να δείτε τη σύνδεσή σας.</h2>
+    </div>
+    <div class="compat-choice-grid">
+      <button class="compat-choice is-selected" type="button" data-compat-choice="sun"><span class="compat-choice-icon" aria-hidden="true">♡</span><span class="tag-free">Δωρεάν</span><h3>Ταίριασμα ζωδίων</h3><p>Γρήγορη συμβατότητα με βάση τα δύο ζώδια.</p><small>Χωρίς εγγραφή</small></button>
+      <button class="compat-choice" type="button" data-compat-choice="chart"><span class="compat-choice-icon" aria-hidden="true">✦</span><span class="tag-premium">Premium</span><h3>Αστρολογικός χάρτης</h3><p>Αναλυτική συναστρία για τη δυναμική της σχέσης.</p><small>Πλήρες report με Premium</small></button>
+      <button class="compat-choice" type="button" data-compat-choice="matrix"><span class="compat-choice-icon" aria-hidden="true">◎</span><span class="tag-premium">Premium</span><h3>Matrix of Destiny</h3><p>Αριθμολογική ανάλυση από δύο ημερομηνίες γέννησης.</p><small>Πλήρες report με Premium</small></button>
+    </div>
+  </section>
+
+  <section class="wrap compat-mobile-picker" id="compatMobilePicker" aria-labelledby="compatMobilePickerTitle">
+    <h2 id="compatMobilePickerTitle">Διάλεξε δύο ζώδια</h2>
+    <div class="mobile-compat-pair" aria-label="Τα ζώδια που συγκρίνεις">
+      <button class="mobile-compat-slot is-active" id="mobileSignSlotA" type="button"></button>
+      <span class="mobile-compat-link" aria-hidden="true">↔</span>
+      <button class="mobile-compat-slot" id="mobileSignSlotB" type="button"></button>
+    </div>
+    <div class="mobile-zodiac-grid" id="mobileSignGrid"></div>
+    <button class="btn btn-primary mobile-compat-cta" id="mobileCompatCta" type="button" disabled>Δες τη συμβατότητα</button>
+  </section>
+
+  <!-- Τι θα δεις -->
+  <section class="wrap" id="sunMatch">
+    <div class="intro-grid">
+      <div class="intro-card">
+        <span class="i-glyph" aria-hidden="true">♀</span>
+        <h2 data-i18n="cp.romantic">Ρομαντική συμβατότητα</h2>
+        <p data-i18n="cp.romanticText">Δες πώς ταιριάζετε στον έρωτα και τι ζητά ο καθένας από τη σχέση.</p>
+      </div>
+      <div class="intro-card">
+        <span class="i-glyph" aria-hidden="true">☿</span>
+        <h2 data-i18n="cp.friend">Φιλία</h2>
+        <p data-i18n="cp.friendText">Πόσο καλά συνδέεστε ως φίλοι και τι κρατάει τη σχέση ζωντανή.</p>
+      </div>
+      <div class="intro-card">
+        <span class="i-glyph" aria-hidden="true">♄</span>
+        <h2 data-i18n="cp.workTrust">Εργασία &amp; εμπιστοσύνη</h2>
+        <p data-i18n="cp.workTrustText">Οι επαγγελματικές δυναμικές και το πού χτίζεται η εμπιστοσύνη.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Επιλογή -->
+  <section class="wrap">
+    <div class="compat-form">
+      <div class="compat-fields">
+        <div>
+          <label class="label" for="signA" data-i18n="cp.you">Πρώτο ζώδιο</label>
+          <div class="select-shell"><select class="field" id="signA"></select></div>
+        </div>
+        <button class="swap-btn" id="swapBtn" type="button"
+                data-i18n-attr="aria-label:cp.swap"><span aria-hidden="true">⇄</span></button>
+        <div>
+          <label class="label" for="signB" data-i18n="cp.them">Δεύτερο ζώδιο</label>
+          <div class="select-shell"><select class="field" id="signB"></select></div>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-block" id="compatCta" type="button" data-i18n="cp.cta">
+        Δες τη συμβατότητα
+      </button>
+      <p class="form-error" id="compatError" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <!-- Αποτέλεσμα -->
+  <section class="wrap" id="resultSection" hidden>
+
+    <div class="match-head">
+      <div class="match-score">
+        <span class="ms-num" id="loveScore">0</span><span class="ms-pct">%</span>
+      </div>
+      <p class="ms-label" data-i18n="cp.loveMatch">Ταίριασμα αγάπης</p>
+
+      <div class="match-pair">
+        <span class="mp-side">
+          <span class="mp-ring" id="pairGlyphA" aria-hidden="true">♈</span>
+          <span class="mp-name" id="pairNameA">—</span>
+        </span>
+        <span class="mp-link" aria-hidden="true">
+          <svg viewBox="0 0 160 24" preserveAspectRatio="none">
+            <path id="pulsePath" d="M0 12 H46 l7 -9 l8 18 l9 -22 l8 22 l7 -9 H160"
+                  fill="none" stroke="currentColor" stroke-width="1.4"/>
+          </svg>
+        </span>
+        <span class="mp-side">
+          <span class="mp-ring" id="pairGlyphB" aria-hidden="true">♉</span>
+          <span class="mp-name" id="pairNameB">—</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Καρτέλες κατηγοριών -->
+    <div class="cat-bar" id="catBar" role="group"
+         data-i18n-attr="aria-label:cp.overall"></div>
+
+    <!-- Πίνακες κατηγοριών -->
+    <div id="catPanels"></div>
+
+    <!-- Αναλυτική συναστρία με credits -->
+    <div class="locked-teaser synastry" id="synastryOffer" hidden>
+      <span class="tag-premium" data-i18n="common.premium">Premium</span>
+      <h3 data-i18n="cp.synastryTitle">Αναλυτική συναστρία</h3>
+      <p data-i18n="cp.synastryText">
+        Η σύγκριση ηλιακών ζωδίων δίνει τη γενική εικόνα. Με ακριβή ημερομηνία, ώρα και τόπο
+        γέννησης και των δύο, συγκρίνονται οι πλήρεις γενέθλιοι χάρτες: Σελήνη, Αφροδίτη, Άρης
+        και ωροσκόποι. Εκεί φαίνεται η πραγματική δυναμική της σχέσης.
+      </p>
+      <button class="btn btn-ghost btn-sm" id="synastryUnlock" type="button">Ξεκλείδωσε με 30 credits</button>
+      <p class="form-status" id="synastryStatus" aria-live="polite"></p>
+      <div class="synastry-report" id="synastryReport" hidden></div>
+    </div>
+
+  </section>
+
+  <section class="wrap matrix-section" aria-labelledby="matrixTitle" hidden>
+    <div class="section-head">
+      <span class="eyebrow"><span class="num">03</span><span>Αριθμολογία</span></span>
+      <h2 class="section-title" id="matrixTitle">Matrix of Destiny για δύο.</h2>
+      <p class="section-sub">Βάλε τις δύο ημερομηνίες γέννησης για μια numerology-based ματιά στα μοτίβα που χρειάζονται προσοχή μεταξύ σας.</p>
+    </div>
+    <form class="matrix-form" id="matrixForm">
+      <label class="form-row"><span class="label">Η δική σου ημερομηνία γέννησης</span><input class="field" id="matrixDateA" type="date" required></label>
+      <label class="form-row"><span class="label">Ημερομηνία γέννησης του/της συντρόφου</span><input class="field" id="matrixDateB" type="date" required></label>
+      <button class="btn btn-primary" type="submit">Υπολόγισε το Matrix</button>
+      <p class="form-error" id="matrixError" aria-live="polite"></p>
+    </form>
+    <div class="matrix-result" id="matrixResult" hidden>
+      <div class="matrix-numbers" id="matrixNumbers"></div>
+      <h3 class="results-label">3 βασικά σημεία που χρειάζονται φροντίδα</h3>
+      <div class="finding-grid" id="matrixFindings"></div>
+      <div class="full-report">
+        <div><span class="label">Premium</span><h2>Full Matrix report</h2><p>Δες γιατί συναντηθήκατε, τι καλείστε να μάθετε ο ένας από τον άλλον και πώς μπορεί να εξελιχθεί η δυναμική σας.</p></div>
+        <button class="btn btn-primary" id="matrixReportButton" type="button">Δες το full report</button>
+      </div>
+      <div class="full-report-details" id="matrixReport" hidden></div>
+    </div>
+  </section>
+
+</main>
+
+<div class="compat-flow" id="compatFlow" hidden role="dialog" aria-modal="true" aria-labelledby="compatFlowTitle">
+  <div class="compat-flow__stars" aria-hidden="true"></div>
+  <div class="compat-flow__content" id="compatFlowContent"></div>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Ταρωτάκι — <span data-i18n="footer.rights">Με επιφύλαξη παντός δικαιώματος.</span></span>
+      <span class="disclaimer" data-i18n="footer.disclaimer">
+        Το περιεχόμενο προσφέρεται για ψυχαγωγία και αυτογνωσία. Δεν αντικαθιστά ιατρική, ψυχολογική, νομική ή οικονομική συμβουλή.
+      </span>
+    </div>
+  </div>
+</footer>
+
+<nav class="app-bottom-nav" aria-label="Κύρια πλοήγηση εφαρμογής">
+  <a class="app-tab" data-app-home href="horoscope.html?sign=aries" aria-label="Ωροσκόπιο"><span aria-hidden="true">⌂</span><small>Αρχική</small></a>
+  <a class="app-tab is-active" href="compatibility.html" aria-label="Συμβατότητα"><span aria-hidden="true">♡</span><small>Ταίριασμα</small></a>
+  <a class="app-tab" href="astrologer.html" aria-label="Αστρολόγος"><span aria-hidden="true">◉</span><small>Αστρολόγος</small></a>
+  <a class="app-tab" href="tarot.html" aria-label="Ταρώ"><span aria-hidden="true">▱</span><small>Ταρώ</small></a>
+</nav>
+
+<script src="assets/js/astro.js"></script>
+<script src="assets/js/compat.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/auth-chip.js"></script>
+<script src="assets/js/page-compat.js"></script>
+<script src="assets/js/mobile-app-nav.js"></script>
+<script src="assets/js/ui.js"></script>
+</body>
+</html>

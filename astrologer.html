@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI Astrologer — Ταρωτάκι</title>
+<meta name="description" content="Ο AI Astrologer είναι διαθέσιμος με Premium: τρεις δωρεάν ερωτήσεις την ημέρα και μετά credits.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#08080a">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="mobile-app-page astrologer-app">
+<a class="skip-link" href="#main">Μετάβαση στο περιεχόμενο</a>
+<div class="sky" aria-hidden="true"></div>
+
+<header class="site-header"><div class="header-inner">
+  <a class="brand" href="index.html" aria-label="tarotaki.gr — αρχική"><span class="brand-mark" aria-hidden="true">☾</span><span>tarotaki.gr</span></a>
+  <nav class="nav-desktop" aria-label="Κύρια πλοήγηση"><ul>
+    <li><a href="index.html#zodiac">Ωροσκόπιο</a></li>
+    <li><a href="compatibility.html">Συμβατότητα</a></li>
+    <li><a href="tarot.html">Ταρώ</a></li>
+    <li><a href="astrologer.html" aria-current="page">AI Astrologer</a></li>
+  </ul></nav>
+  <div id="authChip" class="auth-chip"></div>
+  <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Μενού">
+    <span></span><span></span><span></span>
+  </button>
+</div></header>
+
+<nav class="drawer" id="drawer" data-open="false" aria-label="Πλοήγηση κινητού">
+  <a href="index.html#zodiac"><span class="ico" aria-hidden="true">01</span><span>Ωροσκόπιο</span></a>
+  <a href="compatibility.html"><span class="ico" aria-hidden="true">02</span><span>Συμβατότητα</span></a>
+  <a href="tarot.html"><span class="ico" aria-hidden="true">03</span><span>Ταρώ</span></a>
+  <a href="astrologer.html"><span class="ico" aria-hidden="true">AI</span><span>AI Astrologer</span></a>
+  <a class="btn btn-primary drawer-cta" href="account.html">Ο λογαριασμός μου</a>
+</nav>
+
+<main id="main">
+
+  <!-- ══════════ ΧΩΡΙΣ ΛΟΓΑΡΙΑΣΜΟ ══════════ -->
+  <section class="wrap advisor-intro" id="authRequired" hidden>
+    <div class="section-head">
+      <span class="eyebrow"><span class="num">AI</span><span>Ο προσωπικός σου αστρολόγος</span></span>
+      <h1 class="section-title">Ρώτα ό,τι σε απασχολεί.</h1>
+      <p class="section-sub">
+        Γράφεις την ερώτησή σου με δικά σου λόγια και παίρνεις απάντηση με βάση
+        τα αστρολογικά σου στοιχεία. Χρειάζεται δωρεάν λογαριασμός.
+      </p>
+      <div class="ai-prompt-section" data-ai-prompts data-guest-prompts>
+        <span class="label">Ρώτησε για αγάπη, σχέσεις, μέλλον ή καριέρα</span>
+        <div class="ai-prompt-list"></div>
+      </div>
+    </div>
+
+    <!-- Ο πίνακας που λύνει τη σύγχυση: τι παίρνεις και με τι -->
+    <div class="plan-table" role="table" aria-label="Τι περιλαμβάνει κάθε λογαριασμός">
+      <div class="pt-row pt-head" role="row">
+        <span role="columnheader"></span>
+        <span role="columnheader">Δωρεάν</span>
+        <span role="columnheader" class="pt-premium">Premium</span>
+      </div>
+      <div class="pt-row" role="row">
+        <span role="cell">Ερωτήσεις στον AI, κάθε μέρα</span>
+        <span role="cell" class="pt-no">—</span>
+        <span role="cell" class="pt-premium"><b>3</b></span>
+      </div>
+      <div class="pt-row" role="row">
+        <span role="cell">Παραπάνω ερωτήσεις</span>
+        <span role="cell">με credits</span>
+        <span role="cell" class="pt-premium">με credits</span>
+      </div>
+      <div class="pt-row" role="row">
+        <span role="cell">Live chat με αστρολόγο</span>
+        <span role="cell" class="pt-no">—</span>
+        <span role="cell" class="pt-premium">ναι, με credits</span>
+      </div>
+      <div class="pt-row" role="row">
+        <span role="cell">Προσωπικές αναλύσεις</span>
+        <span role="cell">με credits</span>
+        <span role="cell" class="pt-premium">με credits</span>
+      </div>
+    </div>
+
+    <div class="what-are-credits">
+      <span class="label">Τι είναι τα credits</span>
+      <p>
+        Είναι ξεχωριστά από τη συνδρομή. Τα χρειάζεσαι <b>μόνο</b> όταν ξεπεράσεις
+        τις δωρεάν ερωτήσεις της ημέρας ή όταν ζητήσεις προσωπική ανάλυση.
+        Δεν λήγουν και τα αγοράζεις όποτε θες.
+      </p>
+      <a class="btn btn-primary" href="account.html?next=astrologer.html">Δημιούργησε δωρεάν λογαριασμό</a>
+      <p class="micro">Έχεις ήδη λογαριασμό; <a href="account.html?mode=signin&amp;next=astrologer.html">Σύνδεση</a></p>
+    </div>
+  </section>
+
+  <!-- ══════════ ΣΥΝΔΕΔΕΜΕΝΟΣ ══════════ -->
+  <section class="wrap astrologer-hero" id="astrologerApp" hidden>
+
+    <section class="astrologer-showcase" aria-labelledby="astrologerShowcaseTitle">
+      <div class="astro-portrait" aria-hidden="true"><span>☾</span></div>
+      <p class="astro-kicker">Προσωπική καθοδήγηση</p>
+      <h1 id="astrologerShowcaseTitle">AI Astrologer</h1>
+      <p class="astro-subtitle">Ρώτησε για αγάπη, μέλλον ή καριέρα.</p>
+      <div class="ai-prompt-section ai-showcase-prompts" data-ai-prompts>
+        <div class="ai-prompt-list"></div>
+      </div>
+      <p class="astro-availability">Καθοδήγηση για τη ζωή σου, 24/7</p>
+      <button class="btn btn-primary astro-ask-btn" type="button" id="openAiComposer">Ρώτα τον AI Astrologer <span aria-hidden="true">→</span></button>
+      <button class="astro-price-banner" type="button" id="openPricing"><span>Premium</span><strong>10 € / μήνα</strong><small>Δες τι περιλαμβάνει</small></button>
+    </section>
+
+    <div class="section-head">
+      <span class="eyebrow"><span class="num">AI</span><span>Ο προσωπικός σου αστρολόγος</span></span>
+      <h1 class="section-title">Ρώτα ό,τι σε απασχολεί.</h1>
+      <p class="section-sub">Καθοδήγηση για τη ζωή σου, 24/7 — σχεδιασμένη ειδικά για αστρολογικές ερωτήσεις και τα στοιχεία του προφίλ σου.</p>
+    </div>
+
+    <div class="ai-prompt-section" data-ai-prompts>
+      <div class="prompt-heading"><span class="label">Ξεκίνα με μία ερώτηση</span><button class="link-btn" type="button" id="refreshPrompts">Άλλες ερωτήσεις</button></div>
+      <div class="ai-prompt-list"></div>
+    </div>
+
+    <!-- Μία γραμμή κατάστασης, χωρίς διφορούμενα νούμερα -->
+    <div class="status-bar">
+      <div class="status-item">
+        <span class="label">Ερωτήσεις σήμερα</span>
+        <strong id="remainingToday">—</strong>
+        <small id="remainingHint">—</small>
+      </div>
+      <div class="status-item">
+        <span class="label">Credits</span>
+        <strong id="creditBalance">0</strong>
+        <small>για έξτρα ερωτήσεις και αναλύσεις</small>
+      </div>
+      <div class="status-item">
+        <span class="label">Η επόμενη ερώτηση</span>
+        <strong id="nextQuestionCost">—</strong>
+        <small id="planName">—</small>
+      </div>
+    </div>
+
+    <div class="lock-panel ai-premium-gate" id="aiPremiumGate" hidden>
+      <span class="tag-premium">Premium</span>
+      <h2>Ο AI Astrologer είναι διαθέσιμος με Premium.</h2>
+      <p>Με Premium έχεις 3 δωρεάν ερωτήσεις κάθε μέρα. Από την 4η και μετά χρησιμοποιείς credits.</p>
+      <a class="btn btn-primary" href="account.html#premiumPlansTitle">Δες τα πακέτα Premium</a>
+    </div>
+
+    <!-- Το κυρίως εργαλείο -->
+    <section class="ai-panel" aria-labelledby="aiTitle">
+      <div class="panel-top">
+        <div><span class="label">AI Astrologer</span><h2 id="aiTitle">Η ερώτησή σου</h2></div>
+      </div>
+
+      <div class="chat-log" id="chatLog" aria-live="polite">
+        <p>Γράψε μια συγκεκριμένη ερώτηση για να ξεκινήσεις.</p>
+      </div>
+
+      <form id="aiQuestionForm" class="ai-composer">
+        <label class="sr-only" for="aiQuestion">Η ερώτησή σου</label>
+        <textarea class="field" id="aiQuestion" maxlength="800"
+                  placeholder="π.χ. Τι χρειάζεται να προσέξω στα επαγγελματικά μου αυτή την εβδομάδα;"></textarea>
+        <button class="btn btn-primary" type="submit">Ρώτα τον AI</button>
+      </form>
+
+      <details class="cost-details">
+        <summary>Πόσο κοστίζουν οι επιπλέον ερωτήσεις</summary>
+        <p>Οι δωρεάν ερωτήσεις της ημέρας δεν κοστίζουν τίποτα. Μόλις τις τελειώσεις,
+           κάθε επιπλέον ερώτηση της ίδιας ημέρας ανεβαίνει σκαλωτά:</p>
+        <ul class="cost-ladder">
+          <li><span>1η επιπλέον</span><b>3 credits</b></li>
+          <li><span>2η επιπλέον</span><b>6 credits</b></li>
+          <li><span>3η επιπλέον</span><b>9 credits</b></li>
+        </ul>
+        <p class="micro">Την επόμενη μέρα ο μετρητής μηδενίζει και ξεκινάς πάλι με δωρεάν ερωτήσεις.</p>
+      </details>
+    </section>
+
+    <!-- Έξτρα υπηρεσίες, με καθαρές τιμές -->
+    <section class="services" aria-labelledby="servicesTitle">
+      <div class="section-head">
+        <span class="eyebrow"><span class="num">02</span><span>Με credits</span></span>
+        <h2 class="section-title" id="servicesTitle">Πιο προσωπική ανάλυση</h2>
+      </div>
+
+      <div class="service-list">
+        <button class="service-option" type="button" data-service="chart">
+          <span class="so-icon" aria-hidden="true"><img src="assets/icons/astrology.webp" alt=""></span>
+          <span class="so-body">
+            <b>Ανάλυση αστρολογικού χάρτη</b>
+            <small>Γραπτή ανάλυση του γενέθλιου χάρτη σου, με παράδοση στο email.</small>
+          </span>
+          <em>15 credits</em>
+        </button>
+
+        <button class="service-option" type="button" data-service="compat">
+          <span class="so-icon" aria-hidden="true"><img src="assets/icons/rising-star.webp" alt=""></span>
+          <span class="so-body">
+            <b>Ανάλυση συμβατότητας</b>
+            <small>Για εσένα και ένα ακόμη άτομο, με βάση τους δύο χάρτες.</small>
+          </span>
+          <em>30 credits</em>
+        </button>
+
+        <button class="service-option" type="button" data-service="telegram" id="telegramOption">
+          <span class="so-icon" aria-hidden="true"><img src="assets/icons/moon.webp" alt=""></span>
+          <span class="so-body">
+            <b>Live chat με την αστρολόγο</b>
+            <small>Προσωπική συνομιλία μέσω Telegram. Μόνο για Premium.</small>
+          </span>
+          <em>5–7 credits</em>
+        </button>
+      </div>
+
+      <p class="form-status" id="serviceStatus" aria-live="polite"></p>
+    </section>
+
+    <p class="advisor-foot">
+      Δεν σου φτάνουν τα credits; <a href="#creditPacks">Δες τα πακέτα</a>.
+    </p>
+  </section>
+
+  <div class="astro-pricing-modal" id="astroPricingModal" hidden role="dialog" aria-modal="true" aria-labelledby="astroPricingTitle">
+    <div class="astro-pricing-card">
+      <button class="astro-modal-close" type="button" id="closePricing" aria-label="Κλείσιμο">×</button>
+      <span class="tag-premium">Premium</span>
+      <h2 id="astroPricingTitle">Ο προσωπικός σου αστρολόγος.</h2>
+      <p>3 ερωτήσεις κάθε μέρα, αναλυτικές λειτουργίες και πρόσβαση στον AI Astrologer.</p>
+      <div class="astro-price-options"><div><span>Μηνιαία συνδρομή</span><strong>10 €<small>/ μήνα</small></strong></div><div><span>Ετήσια συνδρομή</span><strong>79,99 €<small>/ έτος</small></strong></div></div>
+      <a class="btn btn-primary" href="account.html#premiumPlansTitle">Δες το Premium</a>
+    </div>
+  </div>
+
+  <!-- ══════════ ΠΑΚΕΤΑ CREDITS ══════════ -->
+  <section class="wrap" id="creditPacks">
+    <div class="section-head">
+      <span class="eyebrow"><span class="num">CR</span><span>Credits</span></span>
+      <h2 class="section-title">Διάλεξε πακέτο.</h2>
+      <p class="section-sub">
+        Τα credits είναι ξεχωριστά από τη συνδρομή και δεν λήγουν. Χρειάζονται μόνο
+        για επιπλέον ερωτήσεις μέσα στην ίδια μέρα και για τις προσωπικές αναλύσεις.
+      </p>
+    </div>
+
+    <div class="credit-packs">
+      <button type="button" class="credit-pack" data-credits="10"><b>10</b><span>credits</span><strong>3&nbsp;€</strong><small>0,30 € / credit</small></button>
+      <button type="button" class="credit-pack" data-credits="20"><b>20</b><span>credits</span><strong>5&nbsp;€</strong><small>0,25 € / credit</small></button>
+      <button type="button" class="credit-pack is-featured" data-credits="50"><b>50</b><span>credits</span><strong>8&nbsp;€</strong><small>0,16 € / credit</small></button>
+      <button type="button" class="credit-pack" data-credits="100"><b>100</b><span>credits</span><strong>13&nbsp;€</strong><small>0,13 € / credit</small></button>
+    </div>
+
+    <p class="proto-note" id="paymentNote">
+      Πρωτότυπο: το σύστημα πληρωμών δεν έχει συνδεθεί, οπότε δεν γίνεται χρέωση
+      ούτε προστίθενται credits.
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer"><div class="wrap"><div class="footer-bottom">
+  <span>© <span id="year"></span> Ταρωτάκι</span>
+  <span class="disclaimer">Περιεχόμενο για ψυχαγωγία και αυτογνωσία. Δεν αντικαθιστά ιατρική, ψυχολογική, νομική ή οικονομική συμβουλή.</span>
+</div></div></footer>
+
+<nav class="app-bottom-nav" aria-label="Κύρια πλοήγηση εφαρμογής">
+  <a class="app-tab" data-app-home href="horoscope.html?sign=aries" aria-label="Ωροσκόπιο"><span aria-hidden="true">⌂</span><small>Αρχική</small></a>
+  <a class="app-tab" href="compatibility.html" aria-label="Συμβατότητα"><span aria-hidden="true">♡</span><small>Ταίριασμα</small></a>
+  <a class="app-tab is-active" href="astrologer.html" aria-label="Αστρολόγος"><span aria-hidden="true">◉</span><small>Αστρολόγος</small></a>
+  <a class="app-tab" href="tarot.html" aria-label="Ταρώ"><span aria-hidden="true">▱</span><small>Ταρώ</small></a>
+</nav>
+
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/auth-chip.js"></script>
+<script src="assets/js/page-astrologer.js"></script>
+<script src="assets/js/mobile-app-nav.js"></script>
+<script src="assets/js/ui.js"></script>
+</body>
+</html>
